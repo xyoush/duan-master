@@ -34,8 +34,8 @@ const styles = (theme) => ({
     "&:hover": {},
   },
   drawerPaper: {
-    width: 240,
-    maxWidth: 240,
+    width: 280,
+    maxWidth: 280,
     zIndex: 99,
     height: "100%",
     position: "relative",
@@ -45,14 +45,10 @@ const styles = (theme) => ({
     fontColor: "#b366ff",
   },
   listItem: {
-    "&:hover": {
-      color: "red",
-    },
+    marginRight: '10px',
   },
   listIcon: {
-    "&:hover": {
-      color: "yellow",
-    },
+ 
   },
   /* khi click vào nút thì màu sẽ giữ ở ngoài */
   menuLinkActive: {
@@ -104,16 +100,8 @@ const styles = (theme) => ({
     marginLeft: "-10px",
     marginTop: "-5px",
   },
-  /* images này dùng để chỉnh logo tròn */
-  images: {
-    marginRight: "5px",
-    marginLeft: "5px",
-    marginTop: "7px",
-  },
-  /* chỉnh nút search dịch qua bên trái */
-  editsearch: {
-    marginLeft: "850px",
-  },
+ 
+
   editbutton: {
     marginLeft: "14px",
   },

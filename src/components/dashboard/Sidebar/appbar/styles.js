@@ -20,10 +20,7 @@ const styles = (theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
+    
     marginRight: '50px',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -57,9 +54,8 @@ const styles = (theme) => ({
     },
   },
   image : {
-  
     backgroundColor: "white",
-    width: "239px",
+    width: "279px",
     height: "64px",
     borderRadius: "0 0 40px 0",
     boxShadow:

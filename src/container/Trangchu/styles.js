@@ -52,12 +52,5 @@ const styles = (theme) => ({
   extendedIcon: {
     marginLeft: theme.spacing(10),
   },
-  button: {
-    width: "100%",
-    borderRadius: "5px",
-  },
-  LinesEllipsis : {
-    color : 'red'
-  }
 });
 export default styles;

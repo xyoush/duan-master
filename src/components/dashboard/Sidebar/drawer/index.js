@@ -9,6 +9,7 @@ import { Assignment } from "@material-ui/icons";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import SettingsIcon from "@material-ui/icons/Settings";
 import WorkIcon from "@material-ui/icons/Work";
+import HomeIcon from '@material-ui/icons/Home';
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
@@ -16,6 +17,15 @@ import { NavLink } from "react-router-dom";
 import { ADMIN_ROUTES } from "../../../../constants";
 import styles from "./styles";
 
+import FeaturedPlayListIcon from '@material-ui/icons/FeaturedPlayList';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import GroupIcon from '@material-ui/icons/Group';
+import RateReviewIcon from '@material-ui/icons/RateReview';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 class Sidebar extends Component {
 
   Drawer = (value) =>{
@@ -42,9 +52,18 @@ class Sidebar extends Component {
                 >
                   <ListItem button key={item} className={classes.listItem}>
                     <ListItemIcon className={classes.listIcon}>
-                      {index === 0 && <WorkIcon color="primary" />}
-                      {index === 1 && <AssignmentIndIcon color="primary" />}
-                      {index === 2 && <Assignment color="primary" />}
+                      {index === 0 && <FeaturedPlayListIcon color="primary" />}
+                      {index === 1 && <NoteAddIcon color="primary" />}
+                      {index === 2 && <WorkIcon color="primary" />}
+                      {index === 3 && <PermContactCalendarIcon color="primary" />}
+                      {index === 4 && <GroupIcon color="primary" />}
+                      {index === 5 && <RateReviewIcon color="primary" />}
+                      {index === 6 && <TimelineIcon color="primary" />}
+                      {index === 7 && <BarChartIcon color="primary" />}
+                      {index === 8 && <LocalLibraryIcon color="primary" />}
+                      {index === 9 && <WorkIcon color="primary" />}
+                      {index === 10 && <PermContactCalendarIcon color="primary" />}
+                      {index === 11 && <LibraryBooksIcon color="primary" />}
                       <ListItemText
                         primary={item.name}
                         className={classes.text}
@@ -55,17 +74,8 @@ class Sidebar extends Component {
               );
             })}
           </List>
-          <Divider />
-          <List>
-            {["Cài Đặt"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 1 === 0 ? <SettingsIcon color="primary" /> : null}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
+      
+          
       </div>
     );
     return xhtml;

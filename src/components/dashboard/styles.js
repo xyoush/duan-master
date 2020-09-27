@@ -2,7 +2,8 @@ const styles = (theme) => ({
   wrapper: {
     display: "flex",
     flexDirection: "row",
-    height : '100vh',
+    minHeight : '100vh',
+    backgroundColor : '#e7e7e7',
   },
   wrapperContent : {
     width : '100%',

@@ -13,7 +13,7 @@ import clsx from "clsx";
 import React, { Component } from "react";
 import styles from "./styles";
 
-class dangnhap extends Component {
+class Dangnhap extends Component {
   render() {
     const { classes } = this.props;
 
@@ -104,4 +104,4 @@ class dangnhap extends Component {
   }
 }
 
-export default withStyles(styles)(dangnhap);
+export default withStyles(styles)(Dangnhap);

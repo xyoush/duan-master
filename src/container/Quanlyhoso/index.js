@@ -1,32 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+import { CardActions, CardMedia, Grid, Paper } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import styles from "./styles";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import {
-  Avatar,
-  FormControl,
-  Grid,
-  IconButton,
-  Input,
-  InputAdornment,
-  InputLabel,
-  Paper,
-} from "@material-ui/core";
-import clsx from "clsx";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
-const classes = styles;
+import Typography from "@material-ui/core/Typography";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import styles from "./styles";
 
-class Quanlycongviec extends Component {
+
+class Quanlyhoso extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,18 +59,6 @@ class Quanlycongviec extends Component {
     });
   };
 
-  handleClickShowPassword = () => {
-    const { showPassword } = this.state;
-    console.log(showPassword);
-    this.setState({
-      showPassword: !showPassword,
-    });
-  };
-
-  // handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
   onChange = (event) => {
     var target = event.target;
     var name = target.name;
@@ -104,6 +78,7 @@ class Quanlycongviec extends Component {
     ));
     return xhtml;
   };
+
   renderlistlabelPhongBan = () => {
     const { PhongBan } = this.state;
     let xhtml = null;
@@ -114,6 +89,7 @@ class Quanlycongviec extends Component {
     ));
     return xhtml;
   };
+
   renderlistlabelGioiTinh = () => {
     const { GioiTinh } = this.state;
     let xhtml = null;
@@ -127,58 +103,52 @@ class Quanlycongviec extends Component {
 
   render() {
     const { classes } = this.props;
-    const { showPassword } = this.state;
-
     return (
       <div className={classes.root}>
-  
-          <Card className={classes.card}>
+        <Grid container spacing={3} className={classes.gird}>
+          <Grid item xs={12} sm={7}>
             <Paper className={classes.media}>
               <AccountBoxIcon
                 className={classes.icon}
-                color="primary"
                 style={{ fontSize: 55 }}
               />
             </Paper>
-
+            <Typography variant="h6" gutterBottom className={classes.Ten}>
+              Quản lý hồ sơ
+            </Typography>
             <CardContent>
-              <Typography gutterBottom component="h2">
-                Quản lý hồ sơ
-              </Typography>
+              <form noValidate autoComplete="off" className={classes.form}>
+                <TextField
+                  id="hovaten"
+                  label="Họ và Tên"
+                  defaultValue="Nguyễn Thị Thái Hà"
+                  type="text"
+                />
+                <TextField id="msnv" label="MSNV" defaultValue="MG123123" />
+                <TextField
+                  id="date"
+                  label="Ngày sinh"
+                  type="date"
+                  defaultValue="2020-11-16"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  className={classes.text12}
+                  select
+                  id="standard-select-currency-native"
+                  name="list"
+                  label="Giới tính"
+                  onChange={this.onChange}
+                  SelectProps={{
+                    native: true,
+                  }}
+                >
+                  {this.renderlistlabelGioiTinh()}
+                </TextField>
 
-              <form className={classes.form} noValidate autoComplete="off">
-                <div>
-                  <TextField
-                    id="hovaten"
-                    label="Họ và Tên"
-                    defaultValue="Nguyễn Thị Thái Hà"
-                    type="text"
-                  />
-                  <TextField id="msnv" label="MSNV" defaultValue="MG123123" />
-                  <TextField
-                    id="date"
-                    label="Ngày sinh"
-                    type="date"
-                    defaultValue="2020-11-16"
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-                  <TextField
-                    className={classes.text12}
-                    select
-                    id="standard-select-currency-native"
-                    name="list"
-                    label="Giới tính"
-                    onChange={this.onChange}
-                    SelectProps={{
-                      native: true,
-                    }}
-                  >
-                    {this.renderlistlabelGioiTinh()}
-                  </TextField>
-                </div>
                 <TextField
                   className={classes.text12}
                   select
@@ -205,7 +175,19 @@ class Quanlycongviec extends Component {
                 >
                   {this.renderlistlabelPhongBan()}
                 </TextField>
-                
+                <TextField
+                  id="email"
+                  label="Email"
+                  defaultValue="HaOsin@gmail.com"
+                />
+                <TextField
+                  id="standard-password-input"
+                  label="Mật Khẩu"
+                  type="password"
+                  defaultValue="HaOsin@gmail.com"
+                  autoComplete="current-password"
+                  helperText="Mật khẩu không hợp lệ"
+                />
                 <TextField
                   id="sdt"
                   label="Điện thoại"
@@ -216,56 +198,41 @@ class Quanlycongviec extends Component {
                   label="Địa chỉ"
                   defaultValue="27-Nguyễn Tất Thành-BMT"
                 />
-                <TextField
-                  id="email"
-                  label="Email"
-                  defaultValue="HaOsin@gmail.com"
-                />
-                <FormControl
-                  className={clsx(classes.margin, classes.textField1)}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
                 >
-                  <InputLabel htmlFor="standard-adornment-password">
-                    Mật khẩu
-                  </InputLabel>
-                  <Input
-                    name="pass"
-                    id="standard-adornment-password"
-                    type={showPassword ? "text" : "password"}
-                    onChange={this.handleChange}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={this.handleClickShowPassword}
-                          onMouseDown={this.handleMouseDownPassword}
-                        >
-                          {showPassword ? (
-                            <VisibilityIcon />
-                          ) : (
-                            <VisibilityOffIcon />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
+                  Cập nhật
+                </Button>
               </form>
             </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                CẬP NHẬT
-              </Button>
-            </CardActions>
-          </Card>
-     
-
+          </Grid>
+          <Grid item xs={12} sm={5}>
+            <Card className={classes.card2}>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media2}
+                  image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                  title="Contemplative Reptile"
+                />
+              </CardActionArea>
+              <CardContent className={classes.cardtext2}>
+                <Typography gutterBottom component="h2" className={classes.Typo}>
+                  Trần Văn Thái Hà
+                </Typography>
+                <Typography component="p">Nhân Viên</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-Quanlycongviec.propTypes = {
+Quanlyhoso.propTypes = {
   classes: PropTypes.object,
 };
 
-export default withStyles(styles)(Quanlycongviec);
+export default withStyles(styles)(Quanlyhoso);
